@@ -1,0 +1,196 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.login-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.login-dialog-box {
+  background-color: $color-gray-beige;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 6px 6px 0px rgba(0,0,0,0.6);
+  padding: 3px;
+  
+  .login-titlebar {
+    background: linear-gradient(90deg, $color-navy, #1e90ff);
+    color: #fff;
+    font-weight: bold;
+    padding: 6px 12px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: $font-sans;
+  }
+  
+  .login-inner-content {
+    background-color: $color-gray-beige;
+    padding: 20px 15px;
+    
+    .login-welcome-banner {
+      background-color: $color-toxic-yellow;
+      border: 2px dashed $color-toxic-red;
+      padding: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+      
+      h3 {
+        font-family: $font-impact;
+        color: $color-toxic-red;
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+      
+      p {
+        font-family: $font-serif;
+        font-size: 12px;
+        color: #000;
+        font-weight: bold;
+      }
+    }
+    
+    .input-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      
+      label {
+        font-family: $font-comic;
+        font-size: 12px;
+        font-weight: bold;
+        color: $color-navy;
+        margin-bottom: 5px;
+        text-align: left;
+        
+        .req-asterisk {
+          color: red;
+          @include blink-text(0.5s);
+        }
+      }
+      
+      input[type="text"], input[type="password"] {
+        padding: 6px;
+        font-family: $font-monospace;
+        border: 2px solid #666;
+        background-color: #fff;
+        font-size: 13px;
+        width: 100%;
+      }
+    }
+    
+    .captcha-container {
+      border: 1px solid #777;
+      padding: 10px;
+      background-color: #e0dcd4;
+      margin-bottom: 20px;
+      text-align: center;
+      
+      .captcha-title {
+        font-family: $font-sans;
+        font-size: 11px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #c00;
+        text-transform: uppercase;
+      }
+      
+      .captcha-display {
+        background-color: #fff;
+        border: 2px inset #999;
+        font-family: $font-impact;
+        font-size: 24px;
+        color: #008080;
+        letter-spacing: 6px;
+        padding: 5px;
+        user-select: none;
+        display: inline-block;
+        margin-bottom: 10px;
+        background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.05), rgba(0,0,0,0.05) 5px, transparent 5px, transparent 10px);
+        transform: skewX(-15deg);
+      }
+      
+      .captcha-input {
+        width: 80%;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: $font-monospace;
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+    
+    .terms-checkbox {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 11px;
+      font-family: $font-serif;
+      line-height: 1.3;
+      text-align: left;
+      
+      input {
+        margin-top: 2px;
+      }
+    }
+    
+    .login-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      position: relative;
+      min-height: 80px;
+      
+      .btn-submit-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .cursed-btn-login {
+        @include button-3d(#228b22);
+        color: #fff;
+        font-family: $font-impact;
+        font-size: 18px;
+        padding: 8px 30px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        width: 100%;
+        text-align: center;
+        border-radius: 4px;
+        
+        &:hover {
+          background-color: $color-toxic-magenta;
+          color: #fff;
+        }
+      }
+      
+      .forgot-links {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 11px;
+        
+        a {
+          color: #000080;
+          font-family: $font-comic;
+          
+          &:hover {
+            color: $color-toxic-red;
+          }
+        }
+      }
+    }
+  }
+}

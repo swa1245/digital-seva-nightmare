@@ -1,0 +1,107 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.cursed-blocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 50, 0.85);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: $font-serif;
+  text-align: center;
+  padding: 20px;
+  
+  .loader-header {
+    font-size: 24px;
+    color: $color-saffron;
+    font-family: $font-impact;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px #000;
+  }
+  
+  .loader-subtext {
+    font-size: 14px;
+    color: $color-toxic-cyan;
+    margin-bottom: 25px;
+    font-family: $font-monospace;
+  }
+}
+
+// Cursed progress bar going backward or fluctuating
+.cursed-progress-container {
+  width: 80%;
+  max-width: 500px;
+  background: #000;
+  border: 3px double $color-gray-light;
+  padding: 3px;
+  position: relative;
+  margin-bottom: 20px;
+  
+  .progress-bar-fill {
+    height: 30px;
+    background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00);
+    transition: width 0.4s ease-in-out;
+  }
+  
+  .progress-percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: $font-impact;
+    color: #fff;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px #000;
+  }
+}
+
+// Classic 2009 animated spinning wheel or blinking gif placeholder
+.govt-spinner {
+  width: 80px;
+  height: 80px;
+  border: 10px double $color-navy;
+  border-top: 10px solid $color-toxic-magenta;
+  border-radius: 50%;
+  animation: spin-clockwise 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin-clockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Auto-save notification corner panel
+.autosave-spinner-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: $color-toxic-yellow;
+  border: 2px solid $color-toxic-red;
+  padding: 8px 12px;
+  font-family: $font-monospace;
+  font-size: 11px;
+  color: #000;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: -2px -2px 5px rgba(0,0,0,0.3);
+  
+  .mini-spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #000;
+    border-top: 2px solid $color-toxic-magenta;
+    border-radius: 50%;
+    animation: spin-clockwise 0.5s linear infinite;
+  }
+}

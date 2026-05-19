@@ -1,0 +1,13 @@
+@import "./abstracts/variables";
+@import "./abstracts/mixins";
+@import "./base/reset";
+@import "./base/typography";
+
+// Page and Component Styles are imported here
+@import "./components/navbar";
+@import "./components/popups";
+@import "./components/loaders";
+@import "./components/ads";
+@import "./pages/login";
+@import "./pages/application";
+@import "./pages/payment";

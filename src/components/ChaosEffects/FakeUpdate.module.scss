@@ -1,0 +1,159 @@
+.fullscreenOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.xpUpdateWindow {
+  background-color: #d4d0c8; // Windows Classic beige
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  box-shadow: 5px 5px 0px rgba(0,0,0,0.9);
+  width: 90%;
+  max-width: 500px;
+  padding: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+}
+
+.titlebar {
+  background: linear-gradient(90deg, #ff0000, #8b0000);
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 12px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titletext {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pulseIcon {
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.2); }
+}
+
+.body {
+  padding: 20px 15px;
+}
+
+.warningBox {
+  display: flex;
+  gap: 15px;
+  background-color: #ffffc0;
+  border: 2px dashed #f00;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+  
+  .warningEmblem {
+    font-size: 32px;
+  }
+  
+  h4 {
+    color: #ff0000;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: Impact, sans-serif;
+  }
+  
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+.progressSection {
+  margin-top: 15px;
+}
+
+.statusMsg {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  color: #008000;
+  font-weight: bold;
+  margin-bottom: 6px;
+  text-align: left;
+  min-height: 16px;
+}
+
+.progressBar {
+  background-color: #000;
+  border: 2px inset #fff;
+  height: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressFill {
+  background: linear-gradient(90deg, #ffff00, #ff00ff, #00ffff);
+  height: 100%;
+}
+
+.percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Impact, sans-serif;
+  font-size: 14px;
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 10px 15px;
+  border-top: 1px solid #c0c0c0;
+  min-height: 40px;
+}
+
+.actionBtn {
+  background-color: #d4d0c8;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  padding: 5px 15px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: crosshair;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+  &:active {
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+  }
+}
+
+.spinIcon {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}

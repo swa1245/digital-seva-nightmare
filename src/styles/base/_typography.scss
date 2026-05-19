@@ -1,0 +1,52 @@
+@import "../abstracts/variables";
+
+body {
+  font-family: $font-sans;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #000;
+}
+
+// Cursed heading hierarchy
+h1 {
+  font-family: $font-impact;
+  color: $color-navy;
+  text-shadow: 2px 2px 0px $color-toxic-yellow;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: $font-serif;
+  color: $color-toxic-red;
+  text-decoration: underline double $color-navy;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-family: $font-comic;
+  color: $color-green;
+  text-transform: capitalize;
+}
+
+// Blinking alert class
+.blink-text {
+  font-weight: bold;
+  color: $color-toxic-red;
+  animation: css-blink 0.5s infinite;
+}
+
+// Marquee tag backup standard styles
+.marquee-container {
+  background: #000;
+  color: $color-toxic-green;
+  font-family: $font-monospace;
+  font-size: 13px;
+  padding: 4px;
+  border-bottom: 2px solid $color-saffron;
+  overflow: hidden;
+  white-space: nowrap;
+}

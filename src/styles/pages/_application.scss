@@ -1,0 +1,168 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.app-page-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  padding: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+.main-application-form {
+  background-color: $color-gray-beige;
+  border: 3px double $color-navy;
+  padding: 15px;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
+  
+  .form-section-title {
+    background-color: $color-navy;
+    color: #fff;
+    font-family: $font-impact;
+    font-size: 16px;
+    padding: 6px 12px;
+    margin: 15px 0 10px 0;
+    text-transform: uppercase;
+    border-left: 5px solid $color-saffron;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.form-grid-ugly {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+  
+  @media (min-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    
+    &.full-width {
+      grid-column: span 1;
+      
+      @media (min-width: 600px) {
+        grid-column: span 2;
+      }
+    }
+    
+    label {
+      font-family: $font-serif;
+      font-weight: bold;
+      font-size: 12px;
+      margin-bottom: 4px;
+      color: #000;
+      
+      .req {
+        color: red;
+        @include blink-text(0.7s);
+      }
+    }
+    
+    .instruction-note {
+      font-family: $font-comic;
+      font-size: 10px;
+      color: $color-toxic-red;
+      margin-bottom: 4px;
+    }
+  }
+}
+
+// Cursed Dropdown system
+.dropdown-nesting-box {
+  background: #eaeaea;
+  border: 1px solid #999;
+  padding: 10px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  
+  .nested-label {
+    font-family: $font-monospace;
+    font-size: 11px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  select {
+    width: 100%;
+    font-size: 12px;
+  }
+}
+
+// Obnoxiously forced horizontal scrolling
+.forced-horizontal-scroll {
+  width: 100%;
+  overflow-x: scroll;
+  border: 3px solid $color-toxic-magenta;
+  background-color: #ffe6ff;
+  padding: 10px;
+  margin: 15px 0;
+  white-space: nowrap;
+  
+  .scroll-content-container {
+    display: inline-block;
+    min-width: 900px;
+    padding-right: 50px;
+  }
+  
+  .required-checkbox-label {
+    font-family: $font-impact;
+    font-size: 14px;
+    color: $color-toxic-red;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: $color-toxic-yellow;
+    padding: 10px;
+    border: 2px dashed #000;
+    
+    input[type="checkbox"] {
+      width: 25px;
+      height: 25px;
+      cursor: progress;
+    }
+  }
+}
+
+// Side panels / ads on page
+.gov-instruction-panel {
+  background-color: $color-toxic-yellow;
+  border: 2px solid $color-toxic-red;
+  padding: 12px;
+  font-family: $font-comic;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  
+  h4 {
+    font-family: $font-impact;
+    color: $color-toxic-red;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1px solid red;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+    @include blink-text(0.9s);
+  }
+  
+  ul {
+    padding-left: 15px;
+    
+    li {
+      margin-bottom: 5px;
+    }
+  }
+}

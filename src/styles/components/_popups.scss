@@ -1,0 +1,171 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.cursed-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.winxp-popup {
+  background-color: $color-gray-beige;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 450px;
+  font-family: $font-sans;
+  padding: 3px;
+  position: relative;
+  
+  &.virus-alert {
+    border: 4px solid $color-toxic-red;
+    @include shake-effect(0.2s);
+    
+    .popup-titlebar {
+      background: linear-gradient(90deg, #ff0000, #800000) !important;
+    }
+  }
+
+  .popup-titlebar {
+    background: linear-gradient(90deg, #0055e0, #1084f0); // WinXP blue title bar
+    color: #fff;
+    font-weight: bold;
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    cursor: move;
+    
+    .title-text {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .close-btn-container {
+      position: relative;
+      width: 16px;
+      height: 16px;
+    }
+    
+    .winxp-close-btn {
+      position: absolute;
+      background: #e04040;
+      color: white;
+      border: 1px solid #701010;
+      font-size: 9px;
+      font-weight: bold;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: crosshair;
+      border-radius: 2px;
+      line-height: 1;
+      
+      &:hover {
+        background: #ff5050;
+      }
+      
+      &.moving {
+        // Can be dynamically positioned
+      }
+    }
+  }
+  
+  .popup-body {
+    padding: 15px;
+    background: $color-gray-beige;
+    font-size: 13px;
+    color: #000;
+    
+    .popup-icon-content {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      
+      .popup-icon {
+        font-size: 32px;
+      }
+      
+      .popup-text {
+        flex: 1;
+        
+        h4 {
+          font-weight: bold;
+          margin-bottom: 8px;
+          color: #000;
+        }
+        
+        p {
+          font-family: $font-serif;
+          margin-bottom: 12px;
+          line-height: 1.3;
+        }
+      }
+    }
+    
+    .captcha-box {
+      border: 2px dashed #999;
+      background-color: #e4e4e4;
+      padding: 10px;
+      margin: 10px 0;
+      text-align: center;
+      
+      .captcha-text {
+        font-family: $font-monospace;
+        font-weight: bold;
+        font-size: 18px;
+        letter-spacing: 5px;
+        background: repeating-linear-gradient(45deg, #ccc, #ccc 10px, #bbb 10px, #bbb 20px);
+        padding: 5px;
+        color: #333;
+        user-select: none;
+        text-decoration: line-through;
+        transform: rotate(-2deg);
+        display: inline-block;
+        margin-bottom: 8px;
+      }
+      
+      input {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  
+  .popup-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 8px 15px;
+    background-color: $color-gray-beige;
+    border-top: 1px solid #d0d0d0;
+    
+    button {
+      @include button-3d($color-gray-beige);
+      min-width: 75px;
+      font-size: 12px;
+      font-weight: bold;
+      
+      &.reversed-btn-ok {
+        background-color: $color-toxic-magenta;
+        color: #fff;
+      }
+    }
+  }
+}

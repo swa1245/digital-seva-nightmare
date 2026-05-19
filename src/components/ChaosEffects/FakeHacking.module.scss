@@ -1,0 +1,108 @@
+.hackingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100000;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.sirenOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 15px solid #f00;
+  pointer-events: none;
+  animation: sirenFlash 0.3s infinite alternate;
+}
+
+@keyframes sirenFlash {
+  0% { opacity: 0.1; }
+  100% { opacity: 0.7; }
+}
+
+.terminalBox {
+  background: #000;
+  border: 4px double #00ff00;
+  box-shadow: 0px 0px 30px rgba(0,255,0,0.5);
+  width: 90%;
+  max-width: 600px;
+  padding: 5px;
+  color: #00ff00;
+}
+
+.terminalHeader {
+  background-color: #003300;
+  color: #00ff00;
+  font-weight: bold;
+  padding: 4px 10px;
+  text-align: center;
+  border-bottom: 2px solid #00ff00;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.terminalBody {
+  padding: 15px;
+}
+
+.bigWarning {
+  font-family: Impact, sans-serif;
+  font-size: 20px;
+  color: #f00;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  animation: txtBlink 0.6s infinite;
+}
+
+@keyframes txtBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.logWindow {
+  background-color: #050505;
+  border: 1px solid #00ff00;
+  height: 220px;
+  padding: 10px;
+  overflow-y: hidden;
+  text-align: left;
+  font-size: 11px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.logLine {
+  margin-bottom: 5px;
+  word-break: break-all;
+}
+
+.greenText {
+  color: #00ff00;
+}
+
+.redText {
+  color: #ff3333;
+  font-weight: bold;
+}
+
+.cursorBlink {
+  display: inline-block;
+  width: 8px;
+  height: 12px;
+  background-color: #00ff00;
+  animation: cursorFlash 0.5s infinite;
+}
+
+@keyframes cursorFlash {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}

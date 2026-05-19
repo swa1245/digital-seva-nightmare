@@ -1,0 +1,51 @@
+.tooltipContainer {
+  display: inline-block;
+  position: relative;
+}
+
+.giantTooltip {
+  position: absolute;
+  top: -95px; // Directly cover the button!
+  left: -20px;
+  background-color: #ffff80; // Toxic highlighter yellow
+  border: 3px double #000;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.8);
+  padding: 10px;
+  width: 250px;
+  z-index: 99999;
+  font-family: 'Comic Sans MS', cursive;
+  color: #000;
+  text-align: left;
+  pointer-events: none; // Users cannot click the tooltip but it visually covers the button!
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 40px;
+    border-width: 12px 12px 0 0;
+    border-style: solid;
+    border-color: #ffff80 transparent transparent transparent;
+  }
+}
+
+.yellowPin {
+  font-family: Impact, sans-serif;
+  font-size: 11px;
+  color: #c00;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.quoteBody {
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 5px;
+}
+
+.warningSub {
+  font-size: 8px;
+  color: #666;
+  font-family: sans-serif;
+}

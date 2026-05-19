@@ -1,0 +1,172 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.payment-page-container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 15px;
+}
+
+.payment-box {
+  background-color: $color-gray-beige;
+  border: 4px double $color-navy;
+  box-shadow: 6px 6px 0px rgba(0,0,0,0.6);
+  padding: 3px;
+  
+  .payment-header {
+    background: linear-gradient(90deg, #ff8c00, #ff0000);
+    color: #fff;
+    font-family: $font-impact;
+    padding: 8px 12px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-family: $font-monospace;
+  background-color: #fff;
+  border: 2px solid #000;
+  
+  th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: $color-gray-light;
+    font-weight: bold;
+  }
+  
+  .total-row {
+    background-color: $color-toxic-yellow;
+    font-weight: bold;
+    font-size: 15px;
+    color: $color-toxic-red;
+  }
+}
+
+.secure-seals {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+  
+  .seal {
+    border: 2px dashed $color-green;
+    background-color: #e6ffe6;
+    padding: 5px 10px;
+    font-family: $font-comic;
+    font-size: 10px;
+    color: $color-green;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+  }
+}
+
+// Transaction simulation overlay
+.payment-processing-overlay {
+  text-align: center;
+  padding: 30px 15px;
+  
+  .danger-warning {
+    color: $color-toxic-red;
+    font-family: $font-impact;
+    font-size: 20px;
+    margin-bottom: 15px;
+    @include blink-text(0.3s);
+  }
+  
+  .instruction {
+    font-family: $font-serif;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+}
+
+// Congratulations screen / final certificate styling
+.certificate-container {
+  border: 10px double $color-navy;
+  background: repeating-linear-gradient(0deg, #fff, #fff 10px, #f7f7f7 10px, #f7f7f7 20px);
+  padding: 30px;
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+  
+  .certificate-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    font-size: 80px;
+    color: rgba(0, 128, 0, 0.08);
+    font-family: $font-impact;
+    pointer-events: none;
+    user-select: none;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .cert-header {
+    font-family: $font-serif;
+    font-size: 24px;
+    color: $color-navy;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .cert-sub {
+    font-family: $font-sans;
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+  }
+  
+  .cert-body {
+    font-family: $font-comic;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #333;
+    
+    .applicant-name {
+      font-weight: bold;
+      color: $color-toxic-magenta;
+      font-size: 22px;
+      text-decoration: underline;
+    }
+  }
+  
+  .cert-signatures {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    font-family: $font-monospace;
+    font-size: 11px;
+    
+    .signature-line {
+      border-top: 1px dashed #000;
+      padding-top: 5px;
+      width: 150px;
+      
+      .sig-name {
+        font-family: $font-comic;
+        font-size: 12px;
+        font-weight: bold;
+        color: #555;
+      }
+    }
+  }
+}

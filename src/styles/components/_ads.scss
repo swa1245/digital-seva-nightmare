@@ -1,0 +1,104 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.ugly-ad-banner {
+  background-color: #000;
+  border: 4px double $color-toxic-magenta;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin: 15px 0;
+  cursor: help;
+  
+  .ad-headline {
+    font-family: $font-impact;
+    font-size: 20px;
+    color: $color-toxic-yellow;
+    margin-bottom: 5px;
+    @include blink-text(0.4s);
+  }
+  
+  .ad-subtext {
+    font-family: $font-comic;
+    font-size: 13px;
+    color: $color-toxic-cyan;
+    text-transform: uppercase;
+  }
+  
+  .ad-close-hint {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 8px;
+    color: #666;
+  }
+}
+
+.floating-ad {
+  position: fixed;
+  background-color: $color-toxic-yellow;
+  border: 3px solid $color-toxic-red;
+  padding: 12px;
+  width: 220px;
+  box-shadow: 5px 5px 0px rgba(0,0,0,0.8);
+  font-family: $font-comic;
+  z-index: 9998;
+  
+  &.float-left {
+    left: 10px;
+    bottom: 80px;
+  }
+  
+  &.float-right {
+    right: 10px;
+    bottom: 80px;
+  }
+  
+  .ad-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff0000;
+    text-align: center;
+    border-bottom: 2px dashed #000;
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+    @include blink-text(0.7s);
+  }
+  
+  .ad-desc {
+    font-size: 11px;
+    color: #000;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  
+  .ad-btn {
+    width: 100%;
+    background-color: $color-green;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid #fff;
+    padding: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    
+    &:hover {
+      background-color: $color-toxic-magenta;
+      color: #000;
+    }
+  }
+}
+
+// Side panels representing ad zones
+.ad-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+  background: #222;
+  border: 2px solid $color-toxic-yellow;
+  color: #fff;
+}
