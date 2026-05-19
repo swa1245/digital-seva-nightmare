@@ -3,7 +3,7 @@
 @import "./base/reset";
 @import "./base/typography";
 
-// Page and Component Styles are imported here
+@import "./components/layout";
 @import "./components/navbar";
 @import "./components/popups";
 @import "./components/loaders";

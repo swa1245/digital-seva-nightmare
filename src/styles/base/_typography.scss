@@ -1,52 +1,49 @@
 @import "../abstracts/variables";
 
 body {
-  font-family: $font-sans;
-  font-size: 14px;
-  line-height: 1.4;
-  color: #000;
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.55;
+  color: $color-cream;
+  -webkit-font-smoothing: antialiased;
 }
 
-// Cursed heading hierarchy
 h1 {
-  font-family: $font-impact;
-  color: $color-navy;
-  text-shadow: 2px 2px 0px $color-toxic-yellow;
-  letter-spacing: 2px;
+  font-family: $font-display;
+  color: $color-cream;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 10px;
+  text-shadow: 0 2px 12px rgba($color-saffron, 0.35);
 }
 
 h2 {
-  font-family: $font-serif;
-  color: $color-toxic-red;
-  text-decoration: underline double $color-navy;
-  font-style: italic;
-  font-weight: bold;
+  font-family: $font-display;
+  color: $color-saffron-soft;
+  letter-spacing: 0.03em;
   margin-bottom: 10px;
 }
 
 h3 {
-  font-family: $font-comic;
-  color: $color-green;
-  text-transform: capitalize;
+  font-family: $font-body;
+  color: $color-green-bright;
+  font-weight: 600;
 }
 
-// Blinking alert class
 .blink-text {
   font-weight: bold;
   color: $color-toxic-red;
-  animation: css-blink 0.5s infinite;
+  animation: css-blink 0.8s infinite;
 }
 
-// Marquee tag backup standard styles
 .marquee-container {
-  background: #000;
-  color: $color-toxic-green;
+  background: rgba($color-navy-deep, 0.85);
+  color: $color-green-bright;
   font-family: $font-monospace;
   font-size: 13px;
-  padding: 4px;
+  padding: 6px 8px;
   border-bottom: 2px solid $color-saffron;
   overflow: hidden;
   white-space: nowrap;
+  backdrop-filter: blur(8px);
 }

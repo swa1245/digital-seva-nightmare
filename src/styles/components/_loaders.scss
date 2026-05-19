@@ -3,105 +3,74 @@
 
 .cursed-blocker {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 50, 0.85);
+  inset: 0;
+  background: rgba($color-navy-deep, 0.92);
+  backdrop-filter: blur(8px);
   z-index: 10000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  font-family: $font-serif;
+  color: $color-cream;
   text-align: center;
-  padding: 20px;
-  
+  padding: 24px;
+
   .loader-header {
-    font-size: 24px;
-    color: $color-saffron;
-    font-family: $font-impact;
+    font-size: 1.5rem;
+    color: $color-saffron-soft;
+    font-family: $font-display;
     margin-bottom: 20px;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px #000;
+    letter-spacing: 0.06em;
+    text-shadow: 0 2px 12px rgba($color-saffron, 0.4);
   }
-  
+
   .loader-subtext {
     font-size: 14px;
     color: $color-toxic-cyan;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
     font-family: $font-monospace;
   }
 }
 
-// Cursed progress bar going backward or fluctuating
-.cursed-progress-container {
-  width: 80%;
-  max-width: 500px;
-  background: #000;
-  border: 3px double $color-gray-light;
-  padding: 3px;
-  position: relative;
-  margin-bottom: 20px;
-  
-  .progress-bar-fill {
-    height: 30px;
-    background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00);
-    transition: width 0.4s ease-in-out;
-  }
-  
-  .progress-percentage {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: $font-impact;
-    color: #fff;
-    font-size: 16px;
-    text-shadow: 1px 1px 2px #000;
-  }
-}
-
-// Classic 2009 animated spinning wheel or blinking gif placeholder
 .govt-spinner {
-  width: 80px;
-  height: 80px;
-  border: 10px double $color-navy;
-  border-top: 10px solid $color-toxic-magenta;
+  width: 72px;
+  height: 72px;
+  border: 4px solid rgba($color-saffron, 0.2);
+  border-top-color: $color-saffron;
   border-radius: 50%;
-  animation: spin-clockwise 1s linear infinite;
-  margin-bottom: 20px;
+  animation: spin-clockwise 0.9s linear infinite;
+  margin-bottom: 24px;
+  box-shadow: 0 0 24px rgba($color-saffron, 0.3);
 }
 
 @keyframes spin-clockwise {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-// Auto-save notification corner panel
 .autosave-spinner-box {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: $color-toxic-yellow;
-  border: 2px solid $color-toxic-red;
-  padding: 8px 12px;
+  @include glass-panel(12px);
+  padding: 10px 14px;
   font-family: $font-monospace;
   font-size: 11px;
-  color: #000;
+  color: $color-cream;
   z-index: 999;
   display: flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: -2px -2px 5px rgba(0,0,0,0.3);
-  
+  gap: 10px;
+  border-radius: $radius-md;
+  border-color: rgba($color-saffron, 0.4);
+
   .mini-spinner {
     width: 14px;
     height: 14px;
-    border: 2px solid #000;
-    border-top: 2px solid $color-toxic-magenta;
+    border: 2px solid rgba($color-cream, 0.3);
+    border-top-color: $color-saffron;
     border-radius: 50%;
-    animation: spin-clockwise 0.5s linear infinite;
+    animation: spin-clockwise 0.6s linear infinite;
   }
 }

@@ -1,31 +1,55 @@
-// Variables for deliberately ugly 2009 digital bureaucracy aesthetic
+// Refined palette — polished retro bureaucracy (still satirical)
 $color-saffron: #ff9933;
+$color-saffron-soft: #ffb347;
 $color-white: #ffffff;
 $color-green: #128807;
-$color-navy: #000080;
+$color-green-bright: #2ecc71;
+$color-navy: #0a1628;
+$color-navy-deep: #060d18;
+$color-gold: #ffd166;
+$color-cream: #f8f4ec;
+$color-cream-dark: #ebe4d4;
 
-// Toxic secondary colors
-$color-toxic-yellow: #ffff00;
-$color-toxic-magenta: #ff00ff;
-$color-toxic-cyan: #00ffff;
-$color-toxic-red: #ff0000;
-$color-toxic-green: #00ff00;
+// Accent highlights
+$color-toxic-yellow: #ffe566;
+$color-toxic-magenta: #e056fd;
+$color-toxic-cyan: #48dbfb;
+$color-toxic-red: #ff4757;
+$color-toxic-green: #7bed9f;
 
-// Windows 95 / XP grey tones
-$color-gray-dark: #333333;
-$color-gray-mid: #808080;
-$color-gray-light: #c0c0c0;
-$color-gray-beige: #d4d0c8;
+// Surfaces
+$color-gray-dark: #2d3436;
+$color-gray-mid: #636e72;
+$color-gray-light: #dfe6e9;
+$color-gray-beige: #ece8df;
+$color-glass: rgba(255, 255, 255, 0.08);
+$color-glass-border: rgba(255, 255, 255, 0.18);
 
 // Borders
 $border-sunken: 2px solid #808080;
 $border-raised: 2px solid #ffffff;
-$border-retro-double: 4px double #000080;
-$border-toxic-dashed: 3px dashed #ff0000;
+$border-retro-double: 4px double $color-navy;
+$border-toxic-dashed: 3px dashed $color-toxic-red;
+$border-glow-saffron: 1px solid rgba($color-saffron, 0.45);
 
-// Typography (intentionally mismatched)
+// Shadows
+$shadow-card: 0 8px 32px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.2);
+$shadow-glow-saffron: 0 0 24px rgba($color-saffron, 0.2);
+$shadow-inset-glass: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+// Typography
+$font-display: "Bebas Neue", "Impact", Haettenschweiler, sans-serif;
+$font-body: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
 $font-comic: "Comic Sans MS", "Comic Sans", cursive;
 $font-serif: "Times New Roman", Times, serif;
-$font-impact: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-$font-monospace: "Courier New", Courier, monospace;
-$font-sans: Arial, Helvetica, sans-serif;
+$font-impact: "Bebas Neue", Impact, sans-serif;
+$font-monospace: "JetBrains Mono", "Courier New", Courier, monospace;
+$font-sans: $font-body;
+
+// Layout
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 16px;
+
+// Transitions
+$ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);

@@ -6,51 +6,98 @@
   padding: 0;
 }
 
-body {
-  background-color: #31659c; // Windows XP desktop blue background color
-  overflow-x: hidden;
+html {
+  scroll-behavior: smooth;
 }
 
-// Thick, ugly scrollbars
+body {
+  background: $color-navy-deep;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+
+  // Rich layered backdrop
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba($color-saffron, 0.18), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 100% 50%, rgba($color-green, 0.12), transparent 50%),
+      radial-gradient(ellipse 50% 35% at 0% 80%, rgba($color-toxic-magenta, 0.08), transparent 45%),
+      linear-gradient(165deg, $color-navy-deep 0%, #0f1f3d 40%, #152a52 100%);
+    pointer-events: none;
+  }
+
+  // Subtle grid texture
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.04;
+    background-image:
+      linear-gradient(rgba($color-white, 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($color-white, 0.5) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+}
+
 ::-webkit-scrollbar {
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: $color-gray-beige;
-  border: 2px solid $color-navy;
+  background: rgba($color-navy-deep, 0.8);
+  border-left: 1px solid $color-glass-border;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $color-gray-light;
-  border-top: 2px solid #fff;
-  border-left: 2px solid #fff;
-  border-bottom: 2px solid #505050;
-  border-right: 2px solid #505050;
-  
+  background: linear-gradient(180deg, $color-saffron-soft, $color-saffron);
+  border-radius: 6px;
+  border: 2px solid $color-navy-deep;
+
   &:hover {
-    background: $color-gray-mid;
+    background: linear-gradient(180deg, $color-gold, $color-saffron);
   }
 }
 
 a {
-  color: blue;
-  text-decoration: underline;
-  cursor: help; // Help cursor instead of pointer is super annoying!
-  
+  color: $color-toxic-cyan;
+  text-decoration: none;
+  transition: color 0.2s $ease-smooth;
+
   &:hover {
-    color: red;
+    color: $color-saffron-soft;
+    text-decoration: underline;
   }
 }
 
-input, select, textarea {
-  border: 2px solid #555;
-  padding: 4px;
-  background-color: #fff;
-  
+input,
+select,
+textarea {
+  border: 1px solid $color-glass-border;
+  padding: 10px 12px;
+  background-color: rgba($color-white, 0.95);
+  border-radius: $radius-sm;
+  font-family: $font-body;
+  font-size: 14px;
+  transition:
+    border-color 0.2s $ease-smooth,
+    box-shadow 0.2s $ease-smooth,
+    background-color 0.2s $ease-smooth;
+
   &:focus {
-    outline: 3px dashed $color-toxic-magenta;
-    background-color: $color-toxic-yellow;
+    outline: none;
+    border-color: $color-saffron;
+    box-shadow: 0 0 0 3px rgba($color-saffron, 0.25);
+    background-color: $color-white;
   }
+}
+
+button {
+  font-family: $font-body;
 }

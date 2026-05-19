@@ -1,56 +1,115 @@
 @import "./variables";
 
-// Blink effect simulation
 @keyframes css-blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.35;
+  }
 }
 
 @mixin blink-text($duration: 0.8s) {
   animation: css-blink $duration infinite;
 }
 
-// Shake animation for annoying warning alerts
 @keyframes css-shake {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  20% { transform: translate(-5px, 5px) rotate(-1deg); }
-  40% { transform: translate(5px, -5px) rotate(1deg); }
-  60% { transform: translate(-5px, -5px) rotate(-1deg); }
-  80% { transform: translate(5px, 5px) rotate(1deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(-4px, 4px) rotate(-0.5deg);
+  }
+  40% {
+    transform: translate(4px, -4px) rotate(0.5deg);
+  }
+  60% {
+    transform: translate(-4px, -4px) rotate(-0.5deg);
+  }
+  80% {
+    transform: translate(4px, 4px) rotate(0.5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
 
 @mixin shake-effect($duration: 0.3s) {
   animation: css-shake $duration infinite;
 }
 
-// Rainbow background for banners
 @keyframes rainbow-bg {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @mixin rainbow-gradient {
-  background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
-  background-size: 1400% 1400%;
-  animation: rainbow-bg 5s ease infinite;
+  background: linear-gradient(
+    270deg,
+    #ff4757,
+    #ff9933,
+    #ffd166,
+    #2ecc71,
+    #48dbfb,
+    #e056fd
+  );
+  background-size: 400% 400%;
+  animation: rainbow-bg 8s ease infinite;
 }
 
-// Retro 3D button border
-@mixin button-3d($bg: $color-gray-light) {
-  background-color: $bg;
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-bottom: 2px solid #404040;
-  border-right: 2px solid #404040;
-  padding: 4px 8px;
-  cursor: pointer;
-  
+@mixin glass-panel($blur: 12px) {
+  background: rgba($color-cream, 0.06);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $color-glass-border;
+  box-shadow: $shadow-card, $shadow-inset-glass;
+}
+
+@mixin card-surface {
+  background: linear-gradient(145deg, rgba($color-cream, 0.12), rgba($color-cream-dark, 0.06));
+  border: 1px solid $color-glass-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+}
+
+@mixin button-3d($bg: $color-green) {
+  background: linear-gradient(180deg, lighten($bg, 8%), $bg);
+  border: none;
+  border-radius: $radius-sm;
+  padding: 10px 20px;
+  color: $color-white;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  box-shadow:
+    0 4px 0 darken($bg, 12%),
+    0 6px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition:
+    transform 0.15s $ease-smooth,
+    box-shadow 0.15s $ease-smooth,
+    filter 0.2s $ease-smooth;
+
+  &:hover {
+    filter: brightness(1.08);
+    box-shadow:
+      0 4px 0 darken($bg, 12%),
+      0 8px 24px rgba($color-saffron, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
   &:active {
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-    border-bottom: 2px solid #ffffff;
-    border-right: 2px solid #ffffff;
+    transform: translateY(3px);
+    box-shadow:
+      0 1px 0 darken($bg, 12%),
+      0 2px 8px rgba(0, 0, 0, 0.2);
   }
 }

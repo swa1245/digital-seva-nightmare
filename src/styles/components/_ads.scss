@@ -2,103 +2,83 @@
 @import "../abstracts/mixins";
 
 .ugly-ad-banner {
-  background-color: #000;
-  border: 4px double $color-toxic-magenta;
-  padding: 10px;
-  color: #fff;
+  @include card-surface;
+  background: linear-gradient(135deg, rgba($color-navy-deep, 0.9), rgba($color-toxic-magenta, 0.15));
+  padding: 16px;
+  color: $color-cream;
   text-align: center;
   position: relative;
   overflow: hidden;
-  margin: 15px 0;
-  cursor: help;
-  
+  margin: 16px 0;
+  border-color: rgba($color-toxic-magenta, 0.35);
+
   .ad-headline {
-    font-family: $font-impact;
-    font-size: 20px;
-    color: $color-toxic-yellow;
-    margin-bottom: 5px;
-    @include blink-text(0.4s);
+    font-family: $font-display;
+    font-size: 1.25rem;
+    color: $color-gold;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
   }
-  
+
   .ad-subtext {
-    font-family: $font-comic;
     font-size: 13px;
-    color: $color-toxic-cyan;
-    text-transform: uppercase;
+    color: rgba($color-cream, 0.85);
+    line-height: 1.4;
   }
-  
+
   .ad-close-hint {
     position: absolute;
-    top: 2px;
-    right: 2px;
-    font-size: 8px;
-    color: #666;
+    top: 6px;
+    right: 8px;
+    font-size: 9px;
+    color: rgba($color-cream, 0.4);
   }
 }
 
 .floating-ad {
+  @include card-surface;
   position: fixed;
-  background-color: $color-toxic-yellow;
-  border: 3px solid $color-toxic-red;
-  padding: 12px;
-  width: 220px;
-  box-shadow: 5px 5px 0px rgba(0,0,0,0.8);
-  font-family: $font-comic;
-  z-index: 9998;
-  
+  padding: 14px;
+  width: 200px;
+  z-index: 9990;
+  background: linear-gradient(145deg, rgba($color-saffron, 0.2), rgba($color-navy-deep, 0.85));
+
   &.float-left {
-    left: 10px;
-    bottom: 80px;
+    left: 16px;
+    bottom: 90px;
   }
-  
+
   &.float-right {
-    right: 10px;
-    bottom: 80px;
+    right: 16px;
+    bottom: 90px;
+    background: linear-gradient(145deg, rgba($color-toxic-magenta, 0.2), rgba($color-navy-deep, 0.9));
   }
-  
+
   .ad-title {
-    font-size: 14px;
-    font-weight: bold;
-    color: #ff0000;
+    font-family: $font-display;
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-gold;
     text-align: center;
-    border-bottom: 2px dashed #000;
-    padding-bottom: 5px;
-    margin-bottom: 8px;
-    @include blink-text(0.7s);
+    border-bottom: 1px solid $color-glass-border;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
   }
-  
+
   .ad-desc {
     font-size: 11px;
-    color: #000;
-    line-height: 1.2;
+    color: rgba($color-cream, 0.85);
+    line-height: 1.35;
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
-  
+
   .ad-btn {
     width: 100%;
-    background-color: $color-green;
-    color: #fff;
-    font-weight: bold;
-    border: 2px solid #fff;
-    padding: 3px;
+    @include button-3d($color-green);
     font-size: 11px;
+    padding: 8px;
     text-transform: uppercase;
-    
-    &:hover {
-      background-color: $color-toxic-magenta;
-      color: #000;
-    }
   }
-}
-
-// Side panels representing ad zones
-.ad-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 10px;
-  background: #222;
-  border: 2px solid $color-toxic-yellow;
-  color: #fff;
 }

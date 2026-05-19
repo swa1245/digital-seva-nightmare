@@ -1,0 +1,83 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  padding-bottom: 24px;
+}
+
+.app-footer {
+  background: rgba($color-navy-deep, 0.92);
+  color: rgba($color-cream, 0.75);
+  font-family: $font-monospace;
+  padding: 14px 20px;
+  font-size: 11px;
+  text-align: center;
+  border-top: 2px solid rgba($color-saffron, 0.5);
+  margin-top: auto;
+  backdrop-filter: blur(10px);
+
+  &__disclaimer {
+    color: rgba($color-toxic-red, 0.85);
+    margin-top: 6px;
+    font-size: 10px;
+  }
+}
+
+.portal-audio-widget {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9998;
+  @include glass-panel(14px);
+  padding: 10px 14px;
+  border-radius: $radius-md;
+  min-width: 160px;
+  font-size: 12px;
+  color: $color-cream;
+
+  &__title {
+    font-weight: 700;
+    color: $color-saffron-soft;
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__mute {
+    @include button-3d($color-navy);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  &__slider {
+    flex: 1;
+    min-width: 72px;
+    accent-color: $color-saffron;
+    height: 4px;
+  }
+
+  &__hint {
+    font-size: 9px;
+    color: rgba($color-cream, 0.5);
+    text-align: center;
+    margin-top: 6px;
+  }
+}

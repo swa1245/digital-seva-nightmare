@@ -207,13 +207,11 @@ const PaymentPage = () => {
             <span className="seal">🔐 SSL v2.0 CERTIFIED</span>
           </div>
 
-          <form onSubmit={handlePayClick} style={{ padding: '10px', border: '1px solid #999', background: '#eaeaea' }}>
-            <h4 style={{ fontFamily: 'sans-serif', fontSize: '12px', fontWeight: 'bold', marginBottom: '10px', color: '#000080' }}>
-              CHOOSE SECURE ELECTRONIC ROUTE:
-            </h4>
+          <form onSubmit={handlePayClick} className="payment-gateway-form">
+            <h4>CHOOSE SECURE ELECTRONIC ROUTE:</h4>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', margin: '10px 0', fontSize: '13px' }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div className="payment-options">
+              <label className="payment-option">
                 <input
                   type="radio"
                   name="payMethod"
@@ -227,7 +225,7 @@ const PaymentPage = () => {
                 <span>State Bank of Digital Bureaucracy (NetBanking)</span>
               </label>
 
-              <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <label className="payment-option">
                 <input
                   type="radio"
                   name="payMethod"
@@ -241,7 +239,7 @@ const PaymentPage = () => {
                 <span>Bank of Local Tea Stall (Direct Biometric Deduct)</span>
               </label>
 
-              <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <label className="payment-option">
                 <input
                   type="radio"
                   name="payMethod"
@@ -256,8 +254,8 @@ const PaymentPage = () => {
               </label>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '15px' }}>
-              <button type="submit" className="cursed-btn-login" style={{ background: '#27ae60', border: '3px solid #2196f3' }}>
+            <div className="payment-submit-wrap">
+              <button type="submit" className="payment-submit-btn">
                 INITIATE digital billing TRANSACTION (2,654.89 INR)
               </button>
             </div>

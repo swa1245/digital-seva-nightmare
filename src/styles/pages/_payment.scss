@@ -2,171 +2,242 @@
 @import "../abstracts/mixins";
 
 .payment-page-container {
-  max-width: 700px;
-  margin: 20px auto;
-  padding: 15px;
+  max-width: 720px;
+  margin: 24px auto;
+  padding: 20px;
 }
 
 .payment-box {
-  background-color: $color-gray-beige;
-  border: 4px double $color-navy;
-  box-shadow: 6px 6px 0px rgba(0,0,0,0.6);
-  padding: 3px;
-  
+  @include card-surface;
+  overflow: hidden;
+  background: linear-gradient(160deg, rgba($color-cream, 0.12), rgba($color-navy-deep, 0.2));
+
   .payment-header {
-    background: linear-gradient(90deg, #ff8c00, #ff0000);
-    color: #fff;
-    font-family: $font-impact;
-    padding: 8px 12px;
-    font-size: 16px;
+    background: linear-gradient(90deg, $color-saffron, darken($color-saffron, 8%));
+    color: $color-navy-deep;
+    font-family: $font-display;
+    padding: 12px 16px;
+    font-size: 1.1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.06em;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 }
 
 .invoice-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 15px 0;
+  margin: 16px 0;
   font-family: $font-monospace;
-  background-color: #fff;
-  border: 2px solid #000;
-  
-  th, td {
-    border: 1px solid #000;
-    padding: 8px;
+  font-size: 13px;
+  background: rgba($color-white, 0.95);
+  border-radius: $radius-sm;
+  overflow: hidden;
+  color: $color-navy-deep;
+
+  th,
+  td {
+    border: 1px solid rgba($color-navy-deep, 0.1);
+    padding: 10px 12px;
     text-align: left;
   }
-  
+
   th {
-    background-color: $color-gray-light;
-    font-weight: bold;
+    background: rgba($color-saffron, 0.2);
+    font-weight: 700;
   }
-  
+
   .total-row {
-    background-color: $color-toxic-yellow;
+    background: linear-gradient(90deg, rgba($color-gold, 0.35), rgba($color-saffron, 0.25));
+    font-weight: 700;
+    font-size: 14px;
+    color: $color-navy-deep;
+  }
+}
+
+.payment-gateway-form {
+  padding: 12px;
+  border: 1px solid #999;
+  background: #eaeaea;
+  color: #000;
+
+  h4 {
+    font-family: $font-sans;
+    font-size: 12px;
     font-weight: bold;
-    font-size: 15px;
-    color: $color-toxic-red;
+    margin-bottom: 10px;
+    color: #000;
+  }
+
+  .payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+    font-size: 13px;
+  }
+
+  .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #000;
+    cursor: pointer;
+
+    span {
+      color: #000;
+    }
+  }
+
+  .payment-submit-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .payment-submit-btn {
+    color: #000 !important;
+    background: #27ae60;
+    border: 3px solid #2196f3;
+    font-family: $font-body;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px 16px;
+    border-radius: $radius-sm;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.05);
+    }
   }
 }
 
 .secure-seals {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin: 15px 0;
+  gap: 12px;
+  margin: 16px 0;
   flex-wrap: wrap;
-  
+
   .seal {
-    border: 2px dashed $color-green;
-    background-color: #e6ffe6;
-    padding: 5px 10px;
-    font-family: $font-comic;
+    border: 1px solid rgba($color-green-bright, 0.5);
+    background: rgba($color-green, 0.12);
+    padding: 8px 12px;
     font-size: 10px;
-    color: $color-green;
-    font-weight: bold;
+    color: $color-green-bright;
+    font-weight: 700;
     text-transform: uppercase;
-    transform: rotate(-3deg);
+    border-radius: $radius-sm;
+    letter-spacing: 0.04em;
   }
 }
 
-// Transaction simulation overlay
 .payment-processing-overlay {
   text-align: center;
-  padding: 30px 15px;
-  
+  padding: 32px 20px;
+
   .danger-warning {
     color: $color-toxic-red;
-    font-family: $font-impact;
-    font-size: 20px;
-    margin-bottom: 15px;
-    @include blink-text(0.3s);
+    font-family: $font-display;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
   }
-  
+
   .instruction {
-    font-family: $font-serif;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 14px;
     margin-bottom: 20px;
+    color: rgba($color-cream, 0.9);
+    line-height: 1.5;
   }
 }
 
-// Congratulations screen / final certificate styling
 .certificate-container {
-  border: 10px double $color-navy;
-  background: repeating-linear-gradient(0deg, #fff, #fff 10px, #f7f7f7 10px, #f7f7f7 20px);
-  padding: 30px;
+  border: 4px double rgba($color-saffron, 0.6);
+  border-radius: $radius-lg;
+  background: linear-gradient(145deg, rgba($color-cream, 0.95), rgba($color-cream-dark, 0.9));
+  padding: 36px 28px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 24px;
   position: relative;
-  
+  box-shadow: $shadow-card, $shadow-glow-saffron;
+  color: $color-navy-deep;
+
   .certificate-watermark {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-25deg);
-    font-size: 80px;
-    color: rgba(0, 128, 0, 0.08);
-    font-family: $font-impact;
+    font-size: 72px;
+    color: rgba($color-green, 0.06);
+    font-family: $font-display;
     pointer-events: none;
     user-select: none;
     width: 100%;
-    text-align: center;
   }
-  
+
   .cert-header {
     font-family: $font-serif;
-    font-size: 24px;
-    color: $color-navy;
+    font-size: 1.6rem;
+    color: $color-navy-deep;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
   }
-  
+
   .cert-sub {
-    font-family: $font-sans;
-    font-size: 12px;
-    color: #666;
-    letter-spacing: 2px;
+    font-size: 11px;
+    color: $color-gray-mid;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
   }
-  
+
   .cert-body {
-    font-family: $font-comic;
     font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 30px;
+    line-height: 1.65;
+    margin-bottom: 28px;
     color: #333;
-    
+
     .applicant-name {
-      font-weight: bold;
-      color: $color-toxic-magenta;
-      font-size: 22px;
-      text-decoration: underline;
+      font-weight: 700;
+      color: $color-navy;
+      font-size: 1.5rem;
+      font-family: $font-display;
+      letter-spacing: 0.04em;
     }
   }
-  
+
   .cert-signatures {
     display: flex;
     justify-content: space-around;
-    margin-top: 40px;
-    font-family: $font-monospace;
+    margin-top: 36px;
     font-size: 11px;
-    
+    flex-wrap: wrap;
+    gap: 20px;
+
     .signature-line {
-      border-top: 1px dashed #000;
-      padding-top: 5px;
-      width: 150px;
-      
+      border-top: 1px dashed rgba($color-navy-deep, 0.4);
+      padding-top: 8px;
+      min-width: 140px;
+
       .sig-name {
-        font-family: $font-comic;
-        font-size: 12px;
-        font-weight: bold;
-        color: #555;
+        font-weight: 700;
+        color: $color-gray-dark;
       }
     }
   }
+}
+
+.cursed-blocker {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  color: $color-cream;
 }
